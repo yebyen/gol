@@ -1,0 +1,9 @@
+GEM
+  specs:
+    minitest (5.4.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest
