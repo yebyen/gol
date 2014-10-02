@@ -3,6 +3,6 @@ require 'conways'
 
 describe "conways" do
   it "is a game of life" do
-    false.should be_true
+    expect(false).to be true
   end
 end
