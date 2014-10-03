@@ -73,8 +73,17 @@ describe "life" do
       expect(c.coord.y).to be 1
     end
 
-    it "can tell you if it should support life next turn" #do
-    #end
+    it "can tell you if it should support life next turn" do
+      b = Board.new
+      c = Cell.new(Coord.new(1,1), b)
+      d = Cell.new(Coord.new(1,0), b)
+      e = Cell.new(Coord.new(0,1), b)
+      coord = c.coord
+      expect( Coord.lives?( c,coord,b ) ).to be true
+      expect( Coord.lives?( d,coord,b ) ).to be true
+      expect( Coord.lives?( e,coord,b ) ).to be true
+      expect( Coord.lives?( nil,Coord.new(0,0),b ) ).to be true
+    end
 
     it "given a board can tell you if there is life at the coord" do
       b = Board.new
