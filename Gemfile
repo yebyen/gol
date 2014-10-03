@@ -1,1 +1,2 @@
-gem 'minitest'
+source 'https://rubygems.org'
+gem 'rspec'
