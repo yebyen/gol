@@ -3,8 +3,18 @@ require './life'
 describe "life" do
 
   context "life board" do
-    it "can enumerate cells" #do
-    #end
+    it "can count and enumerate cells" do
+      b = Board.new
+      n = 0
+      expect(b.count).to eq 0
+      b << Cell.new(Coord.new( 1,1 ), b)
+      expect(b.count).to eq 1
+      b << Cell.new(Coord.new( 2,1 ), b)
+      b.each do |c|
+        n += 1
+      end
+      expect(n).to eq 2
+    end
 
     it "can make a move"
 
@@ -67,7 +77,7 @@ describe "life" do
       co = Coord.new(1,1)
       c = Cell.new(co, b)
       expect(Coord.life_at?(b,c.coord)).to be false
-      b.add(c)
+      b << c
       expect(Coord.life_at?(b,c.coord)).to be true
     end
 
