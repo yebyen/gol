@@ -8,4 +8,14 @@ class Coord
     @x = x
     @y = y
   end
+  def neighbors
+    [Coord.new(@x-1,@y-1),
+     Coord.new(@x-1,@y  ),
+     Coord.new(@x-1,@y+1),
+     Coord.new(@x  ,@y-1),
+     Coord.new(@x  ,@y+1),
+     Coord.new(@x+1,@y-1),
+     Coord.new(@x+1,@y  ),
+     Coord.new(@x+1,@y+1)]
+  end
 end

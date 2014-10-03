@@ -49,7 +49,7 @@ describe "life" do
       expect(c.y).to be 1
     end
 
-    it "returns its neighboring cells" do
+    it "returns its neighboring coords" do
       c = Coord.new(1,1)
       n = c.neighbors
       expect(n.length).to be 8
