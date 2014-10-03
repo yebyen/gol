@@ -3,7 +3,8 @@ require './life'
 describe "life" do
 
   context "life board" do
-    it "can enumerate cells"
+    it "can enumerate cells" do
+    end
     
     it "can make a move"
     
@@ -26,7 +27,8 @@ describe "life" do
   end
 
   context "cell" do
-    it "knows its own position"
+    it "knows its own position" do
+    end
     
     it "given a board can count up its neighbors"
     
@@ -37,13 +39,14 @@ describe "life" do
   end
 
   context "coord" do
-    it "has a position"
+    it "has a position" do
     
-    it "returns its neighboring cells"
+    it "returns its neighboring cells" do
     
-    it "can be produced by a cell"
+    it "can be produced by a cell" do
     
-    it "can tell you if it should support life next turn"
+    it "can tell you if it should support life next turn" do
+    end
     
     it "given a board can tell you if there is life at the coord" do
       b = Board.new
