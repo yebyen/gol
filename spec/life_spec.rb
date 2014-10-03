@@ -66,8 +66,12 @@ describe "life" do
       #n.each
     end
 
-    it "can be produced by a cell" #do
-    #end
+    it "can be produced by a cell" do
+      b = Board.new
+      c = Cell.new(Coord.new(1,1), b)
+      expect(c.coord.x).to be 1
+      expect(c.coord.y).to be 1
+    end
 
     it "can tell you if it should support life next turn" #do
     #end
