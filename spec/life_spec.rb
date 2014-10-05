@@ -113,7 +113,21 @@ describe "life" do
       expect( f.lives? ).to be false
     end
 
-    it "can breed when with enough neighbors"
+    it "can breed when with enough neighbors" do
+      b = Board.new
+      c = Cell.new(Coord.new(0,0),b)
+      d = Cell.new(Coord.new(1,0),b)
+      e = Cell.new(Coord.new(2,2),b)
+      f = Cell.new(Coord.new(3,0),b)
+      g = Coord.new(1,1)
+      h = Coord.new(2,1)
+      [g,h].each do|coord|
+        expect( Coord.lives?(nil, coord, b) ).to be true
+      end
+      [c,d,e,f].each do|cell|
+        expect( Coord.lives?(cell, cell.coord, b) ).to be false
+      end
+    end
 
     it "adds itself to the board on creation" do
       b = Board.new
