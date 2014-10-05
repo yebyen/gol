@@ -2,8 +2,6 @@ require 'forwardable'
 require 'pry'
 
 class Board
-  attr_accessor :board
-
   include Enumerable
   extend Forwardable
   def_delegators :@board_map, :each_value, :size
