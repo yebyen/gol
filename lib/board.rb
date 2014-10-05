@@ -10,8 +10,24 @@ class Board
     end
     return false
   end
-  def initialize
+  def initialize(y=0,x=0)
+    @width=x
+    @height=y
     @board_map={}
+  end
+  def to_s
+    s = ""
+    @height.times do |y|
+      @width.times do |x|
+        if has_life_at?(Coord.new(x,y))
+          s += '*'
+        else
+          s += '.'
+        end
+      end
+      s += "\n"
+    end
+    s.chomp
   end
   def add(cell)
     unless @board_map.key?(cell.coord)

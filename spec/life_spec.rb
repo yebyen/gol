@@ -63,7 +63,15 @@ describe "life" do
 
     it "has an event loop"
 
-    it "has a display logic"
+    it "has a display logic" do
+      b = Board.new(4,8)
+      c = Cell.new(Coord.new(1,1),b)
+      expect( b.to_s ).to eq \
+"........
+.*......
+........
+........"
+    end
 
     it "reads an input board format from file or stdin"
 
