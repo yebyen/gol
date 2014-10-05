@@ -45,7 +45,18 @@ describe "life" do
       expect(c.coord.y).to be 1
     end
 
-    it "given a board can count up its neighbors"
+    it "given a board can count up its neighbors" do
+      b = Board.new
+      c = Cell.new(Coord.new(1,1), b)
+      d = Cell.new(Coord.new(1,0), b)
+      e = Cell.new(Coord.new(0,1), b)
+      f = Cell.new(Coord.new(2,2), b)
+      [c,d,e,f].each {|cell| b<<cell}
+      expect( c.neighbors(b) ).to be 3
+      expect( d.neighbors(b) ).to be 2
+      expect( e.neighbors(b) ).to be 2
+      expect( f.neighbors(b) ).to be 1
+    end
 
     it "can tell you if it should live or die" do
       b = Board.new

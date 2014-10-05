@@ -14,4 +14,13 @@ class Cell
   def lives?
     Coord.lives?(self,coord,board)
   end
+  def neighbors(b)
+    num_neighbors = 0
+    self.coord.neighbors.each do|c|
+      if b.has_life_at?(c)
+        num_neighbors += 1
+      end
+    end
+    num_neighbors
+  end
 end
