@@ -1,4 +1,5 @@
 require './life'
+require 'pry'
 
 describe "life" do
 
@@ -78,11 +79,14 @@ describe "life" do
       c = Cell.new(Coord.new(1,1), b)
       d = Cell.new(Coord.new(1,0), b)
       e = Cell.new(Coord.new(0,1), b)
+      [c,d,e].each {|cell| b<<cell}
       coord = c.coord
       expect( Coord.lives?( c,coord,b ) ).to be true
       expect( Coord.lives?( d,coord,b ) ).to be true
       expect( Coord.lives?( e,coord,b ) ).to be true
       expect( Coord.lives?( nil,Coord.new(0,0),b ) ).to be true
+      expect( Coord.lives?( nil,Coord.new(-1,0),b ) ).to be false
+      expect( Coord.lives?( nil,Coord.new(0,-1),b ) ).to be false
     end
 
     it "given a board can tell you if there is life at the coord" do
