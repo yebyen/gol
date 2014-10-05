@@ -15,9 +15,8 @@ class Board
     @board_map={}
   end
   def add(cell)
-    coords = [cell.coord.x, cell.coord.y]
-    unless @board_map.key?(coords)
-      @board_map[coords] = cell
+    unless @board_map.key?(cell.coord)
+      @board_map[cell.coord] = cell
     else
       raise
     end

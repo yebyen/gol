@@ -31,4 +31,18 @@ class Coord
     end
     false
   end
+  def ==(other_object)
+    if other_object.class == self.class
+      if other_object.x == @x && other_object.y == @y
+        return true
+      end
+    end
+    false
+  end
+  def eql?(other)
+    self == other
+  end
+  def hash
+    [@x,@y].hash
+  end
 end
