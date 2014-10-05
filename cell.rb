@@ -4,6 +4,7 @@ class Cell
     @x = c.x
     @y = c.y
     @board = board
+    @board.add self
   end
   def at?(x,y)
     @x==x && @y==y

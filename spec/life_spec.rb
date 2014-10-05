@@ -7,10 +7,11 @@ describe "life" do
     it "can count and enumerate cells" do
       b = Board.new
       n = 0
-      expect(b.count).to eq 0
-      b.add Cell.new(Coord.new( 1,1 ), b)
-      expect(b.count).to eq 1
-      b.add Cell.new(Coord.new( 2,1 ), b)
+      expect(b.size).to eq 0
+      Cell.new(Coord.new( 1,1 ), b)
+      expect(b.size).to eq 1
+      Cell.new(Coord.new( 2,1 ), b)
+      expect(b.size).to eq 2
       b.each_value do |c|
         n += 1
       end
@@ -37,11 +38,10 @@ describe "life" do
 
     it "raises if two cells ever have the same location" do
       b = Board.new
-      c = Cell.new(Coord.new(1,1), b)
-      d = Cell.new(Coord.new(1,1), b)
       failure = 0
+      c = Cell.new(Coord.new(1,1), b)
       begin
-        [c,d].each {|cell| b.add cell}
+        d = Cell.new(Coord.new(1,1), b)
       rescue
         failure += 1
       ensure
@@ -64,7 +64,6 @@ describe "life" do
       d = Cell.new(Coord.new(1,0), b)
       e = Cell.new(Coord.new(0,1), b)
       f = Cell.new(Coord.new(2,2), b)
-      [c,d,e,f].each {|cell| b.add cell}
       expect( c.neighbors(b) ).to be 3
       expect( d.neighbors(b) ).to be 2
       expect( e.neighbors(b) ).to be 2
@@ -77,7 +76,6 @@ describe "life" do
       d = Cell.new(Coord.new(1,0), b)
       e = Cell.new(Coord.new(0,1), b)
       f = Cell.new(Coord.new(2,2), b)
-      [c,d,e,f].each {|cell| b.add cell}
       expect( c.lives? ).to be true
       expect( d.lives? ).to be true
       expect( e.lives? ).to be true
@@ -86,6 +84,12 @@ describe "life" do
 
     it "can breed when with enough neighbors"
 
+    it "adds itself to the board on creation" do
+      b = Board.new
+      expect( b.size ).to be 0
+      c = Cell.new(Coord.new(1,1), b)
+      expect( b.size ).to be 1
+    end
   end
 
   context "coord" do
@@ -114,7 +118,6 @@ describe "life" do
       c = Cell.new(Coord.new(1,1), b)
       d = Cell.new(Coord.new(1,0), b)
       e = Cell.new(Coord.new(0,1), b)
-      [c,d,e].each {|cell| b.add cell}
       coord = c.coord
       expect( Coord.lives?( c,coord,b ) ).to be true
       expect( Coord.lives?( d,coord,b ) ).to be true
@@ -127,9 +130,8 @@ describe "life" do
     it "given a board can tell you if there is life at the coord" do
       b = Board.new
       co = Coord.new(1,1)
+      expect(Coord.life_at?(b,co)).to be false
       c = Cell.new(co, b)
-      expect(Coord.life_at?(b,c.coord)).to be false
-      b.add c
       expect(Coord.life_at?(b,c.coord)).to be true
     end
 
