@@ -10,10 +10,31 @@ class Board
     end
     return false
   end
-  def initialize(y=0,x=0)
+  def initialize(y=0,x=0,file=nil)
     @width=x
     @height=y
     @board_map={}
+    unless file.nil?
+      f = File.new(file)
+      y = 0
+      while line = f.gets
+        x = 0
+        line.split("").each do|c|
+          case c
+          when '.'
+            x += 1
+          when '*'
+            Cell.new(Coord.new(x,y), self)
+            x += 1
+          when "\n"
+            #noop
+          else
+            raise
+          end
+        end
+        y += 1
+      end
+    end
   end
   def to_s
     s = ""

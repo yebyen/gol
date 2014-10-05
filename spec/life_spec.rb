@@ -73,7 +73,14 @@ describe "life" do
 ........"
     end
 
-    it "reads an input board format from file or stdin"
+    it "reads an input board format from file or stdin" do
+      b = Board.new(4,8,'test.txt')
+      expect( b.to_s ).to eq \
+".*.*....
+.*.*..*.
+........
+........"
+    end
 
     it "raises if two cells ever have the same location" do
       b = Board.new
