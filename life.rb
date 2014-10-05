@@ -1,5 +1,3 @@
-require './coord'
-require './cell'
-require './board'
-class Move
-end
+require './lib/coord'
+require './lib/cell'
+require './lib/board'

@@ -1,5 +1,4 @@
 require 'forwardable'
-require 'pry'
 
 class Board
   include Enumerable

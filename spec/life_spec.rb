@@ -1,9 +1,9 @@
-require './life'
 require 'pry'
 
 describe "life" do
 
   context "board" do
+    require 'board'
     it "can count and enumerate cells" do
       b = Board.new
       n = 0
@@ -82,6 +82,7 @@ describe "life" do
   end
 
   context "cell" do
+    require 'cell'
     it "knows its own position" do
       b = Board.new
       c = Cell.new(Coord.new(1,1), b)
@@ -138,6 +139,7 @@ describe "life" do
   end
 
   context "coord" do
+    require 'coord'
     it "has a position" do
       c = Coord.new(1,1)
       expect(c.x).to be 1
