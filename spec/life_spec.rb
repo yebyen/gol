@@ -20,15 +20,46 @@ describe "life" do
 
     it "can make a move"
 
-    it "kills a cell with no neighbors"
+    it "kills a cell with no neighbors" do
+      b = Board.new
+      c = Cell.new(Coord.new(1,1),b)
+      expect(c.lives?).to be false
+    end
 
-    it "kills a cell with one neighbor"
+    it "kills a cell with one neighbor" do
+      b = Board.new
+      c = Cell.new(Coord.new(1,1),b)
+      d = Cell.new(Coord.new(1,2),b)
+      expect(c.lives?).to be false
+      expect(d.lives?).to be false
+    end
 
-    it "lets a cell with two neighbors live"
+    it "lets a cell with two neighbors live" do
+      b = Board.new
+      c = Cell.new(Coord.new(1,1),b)
+      d = Cell.new(Coord.new(1,2),b)
+      e = Cell.new(Coord.new(1,3),b)
+      expect(d.lives?).to be true
+    end
 
-    it "lets a cell with three neighbors live"
+    it "lets a cell with three neighbors live" do
+      b = Board.new
+      c = Cell.new(Coord.new(1,1),b)
+      d = Cell.new(Coord.new(1,2),b)
+      e = Cell.new(Coord.new(1,3),b)
+      f = Cell.new(Coord.new(2,3),b)
+      expect(d.lives?).to be true
+    end
 
-    it "kills a cell with more than three neighbors"
+    it "kills a cell with more than three neighbors" do
+      b = Board.new
+      c = Cell.new(Coord.new(1,1),b)
+      d = Cell.new(Coord.new(1,2),b)
+      e = Cell.new(Coord.new(1,3),b)
+      f = Cell.new(Coord.new(2,3),b)
+      g = Cell.new(Coord.new(2,2),b)
+      expect(d.lives?).to be false
+    end
 
     it "has an event loop"
 
