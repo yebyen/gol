@@ -6,18 +6,17 @@ class Board
 
   include Enumerable
   extend Forwardable
-  def_delegators :@board, :each #, :<<
+  def_delegators :@board_map, :each_value #, :<<
   def has_life_at?(coord)
-    @board.each do |cell|
+    @board_map.each_value do |cell|
       return true if cell.at?(coord.x,coord.y)
     end
     return false
   end
   def count
-    @board.length
+    @board_map.size
   end
   def initialize
-    @board=[]
     @board_map={}
   end
   def add(cell)
@@ -27,6 +26,5 @@ class Board
     else
       raise
     end
-    @board << cell
   end
 end

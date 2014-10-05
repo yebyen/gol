@@ -11,7 +11,7 @@ describe "life" do
       b.add Cell.new(Coord.new( 1,1 ), b)
       expect(b.count).to eq 1
       b.add Cell.new(Coord.new( 2,1 ), b)
-      b.each do |c|
+      b.each_value do |c|
         n += 1
       end
       expect(n).to eq 2
