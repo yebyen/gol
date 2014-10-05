@@ -47,7 +47,18 @@ describe "life" do
 
     it "given a board can count up its neighbors"
 
-    it "can tell you if it should live or die"
+    it "can tell you if it should live or die" do
+      b = Board.new
+      c = Cell.new(Coord.new(1,1), b)
+      d = Cell.new(Coord.new(1,0), b)
+      e = Cell.new(Coord.new(0,1), b)
+      f = Cell.new(Coord.new(2,2), b)
+      [c,d,e,f].each {|cell| b<<cell}
+      expect( c.lives? ).to be true
+      expect( d.lives? ).to be true
+      expect( e.lives? ).to be true
+      expect( f.lives? ).to be false
+    end
 
     it "can breed when with enough neighbors"
 

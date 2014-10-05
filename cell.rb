@@ -11,4 +11,7 @@ class Cell
   def coord
     Coord.new(@x,@y)
   end
+  def lives?
+    Coord.lives?(self,coord,board)
+  end
 end
