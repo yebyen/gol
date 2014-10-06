@@ -41,7 +41,7 @@ class Board
     @height.times do |y|
       @width.times do |x|
         if has_life_at?(Coord.new(x,y))
-          s += '*'
+          s += '▮'
         else
           s += ' '
         end
