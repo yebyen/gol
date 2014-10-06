@@ -208,12 +208,17 @@ describe "life" do
 
   end
 
-  #context "move" do
-  #  it "uses Board#move to keep track of the current move" do
-  #    b = Board.new('test.txt')
-  #    m = Move.new(b)
-  #    m.move
-  #    b = m.board
-  #  end
-  #end
+  context "move" do
+    require 'move'
+    it "uses Board#move to keep track of the current move" do
+      b = Board.new(4,8,'test.txt')
+      m = Move.new(b)
+      m.move
+      expect( m.board.to_s ).to eq \
+"........
+........
+........
+........"
+    end
+  end
 end
