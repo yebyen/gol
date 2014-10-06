@@ -10,7 +10,7 @@ while true do
   puts m.board
   puts
   print "Generation: #{c}"
-  sleep 0.1
+  #sleep 0.1
   m.move
   c += 1
 end
