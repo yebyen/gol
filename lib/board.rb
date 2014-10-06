@@ -51,14 +51,14 @@ class Board
     s.chomp
   end
   def add(cell)
-    if (cell.coord.x <= @width && cell.coord.y <= @height &&
-       cell.coord.x >= 0 && cell.coord.y >= 0) || (@width==0 && @height==0)
+    #if (cell.coord.x <= @width && cell.coord.y <= @height &&
+    #   cell.coord.x >= 0 && cell.coord.y >= 0) || (@width==0 && @height==0)
       unless @board_map.key?(cell.coord)
         @board_map[cell.coord] = cell
       else
         raise
       end
-    end
+    #end
   end
   def move
     b_new = Board.new(@height,@width)

@@ -4,7 +4,7 @@ require './lib/cell'
 require './lib/board'
 require './lib/move'
 
-m = Move.new(Board.new(22,143,"board.txt"))
+m = Move.new(Board.new(50,205,"board.txt"))
 c = 0
 while true do
   puts m.board
