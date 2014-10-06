@@ -43,7 +43,7 @@ class Board
         if has_life_at?(Coord.new(x,y))
           s += '*'
         else
-          s += '.'
+          s += ' '
         end
       end
       s += "\n"
