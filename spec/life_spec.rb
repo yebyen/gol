@@ -23,10 +23,10 @@ describe "life" do
       b2 = b.move
 
       expect( b2.to_s ).to eq \
-"........
-........
-........
-........"
+"        
+        
+        
+        "
     end
 
     it "kills a cell with no neighbors" do
@@ -76,19 +76,19 @@ describe "life" do
       b = Board.new(4,8)
       c = Cell.new(Coord.new(1,1),b)
       expect( b.to_s ).to eq \
-"........
-.*......
-........
-........"
+"        
+ ▮      
+        
+        "
     end
 
     it "reads an input board format from file or stdin" do
       b = Board.new(4,8,'test.txt')
       expect( b.to_s ).to eq \
-".*.*....
-.*.*..*.
-........
-........"
+" ▮ ▮    
+ ▮ ▮  ▮ 
+        
+        "
     end
 
     it "raises if two cells ever have the same location" do
@@ -215,10 +215,10 @@ describe "life" do
       m = Move.new(b)
       m.move
       expect( m.board.to_s ).to eq \
-"........
-........
-........
-........"
+"        
+        
+        
+        "
     end
   end
 end

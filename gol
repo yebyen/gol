@@ -4,14 +4,13 @@ require './lib/cell'
 require './lib/board'
 require './lib/move'
 
-m = Move.new(Board.new(9,140,"board.txt"))
+m = Move.new(Board.new(22,143,"board.txt"))
 c = 0
 while true do
-  system("clear")
   puts m.board
   puts
-  puts "Generation: #{c}"
-  sleep 0.2
-  c += 1
+  print "Generation: #{c}"
+  sleep 0.1
   m.move
+  c += 1
 end
