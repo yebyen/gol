@@ -18,7 +18,16 @@ describe "life" do
       expect(n).to eq 2
     end
 
-    it "can make a move"
+    it "can make a move" do
+      b = Board.new(4,8,'test.txt')
+      b2 = b.move
+
+      expect( b2.to_s ).to eq \
+"........
+........
+........
+........"
+    end
 
     it "kills a cell with no neighbors" do
       b = Board.new
@@ -199,7 +208,12 @@ describe "life" do
 
   end
 
-  context "move" #do
+  #context "move" do
+  #  it "uses Board#move to keep track of the current move" do
+  #    b = Board.new('test.txt')
+  #    m = Move.new(b)
+  #    m.move
+  #    b = m.board
+  #  end
   #end
-
 end

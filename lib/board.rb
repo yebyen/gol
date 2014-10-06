@@ -57,4 +57,20 @@ class Board
       raise
     end
   end
+  def move
+    b_new = Board.new(@height,@width)
+    all_coords = {}
+    self.each_value do |cell|
+      all_coords[cell.coord] = cell.coord
+      cell.coord.neighbors.each do |coord|
+        all_coords[coord] = coord
+      end
+    end
+    all_coords.each_key do |coord|
+      if Coord.lives?(@board_map[coord], coord, self)
+        Cell.new(coord,b_new)
+      end
+    end
+    b_new
+  end
 end
